@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Movie Game</title>
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -11,7 +11,13 @@
   <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" href="app/css/app.css">
 </head>
-<body>
+<body ng-app="3play">
 
+
+<ng-view></ng-view>
+
+<!-- angular module defintion and reoutes -->
+<script src="app/js/app.js"></script>
+<script src="app/js/routes.js"></script>
 </body>
 </html>
