@@ -12,7 +12,6 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, MoviesFa
       movieObject[movieTitleCleaned] = movies[i].id;
     };
     $scope.movies = movieObject;
-    debugger
   });
 
 
