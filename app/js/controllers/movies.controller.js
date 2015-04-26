@@ -1,4 +1,4 @@
-angular.module('3play').controller('MovieCtrl', function($scope, $http, MoviesFactory) {
+angular.module('3play').controller('MovieCtrl', function($scope, $http, $location, MoviesFactory) {
   'use strict'
 
   var promise, clearMovieForm;
@@ -28,9 +28,11 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, MoviesFa
     } else {
       $http.get('http://localhost:3000/movies/'+movieSearchId).success(function(response) {
         console.log(response);
+        $scope.actors = response;
       }).error(function(response){
         alert(response);
       });
+      $location.path( "/gameplay" );
     }
     // clearMovieForm();
   };
