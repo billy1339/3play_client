@@ -53,7 +53,9 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
         $('#entry-screen').hide("slow");
         $('#game-screen').show("slow");
         $('#dragMe').on('mouseover','.namesToDrag', function(){
-          $(this).draggable();
+          $(this).draggable({
+            revert: "invalid"
+          });
         });
         $('#dropMe').on('mouseover', 'img', function() {
           $(this).droppable({
@@ -64,11 +66,21 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
               // debugger
               alert(ui.target.getAttribute('data-id'));
               alert(ui.toElement.id);
+              // ui.toElement.draggable("disable");
             }
           })
         });
       });
     }
+  };
+
+  $scope.reset = function() {
+    var names_list, i;
+    names_list = $('.namesToDrag')
+    for(i=0; i<names_list.length; i++) {
+      names_list[i].style.top = "0px";
+      names_list[i].style.left = "0px";
+    };
   };
 
 
