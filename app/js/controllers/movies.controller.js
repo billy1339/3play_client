@@ -29,10 +29,13 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
       $http.get('http://localhost:3000/movies/'+movieSearchId).success(function(response) {
         console.log(response);
         $scope.actors = response;
+        debugger
       }).error(function(response){
         alert(response);
       });
-      $location.path( "/gameplay" );
+      $('#entry-screen').hide("slow");
+      $('#game-screen').show("slow");
+      debugger
     }
     // clearMovieForm();
   };

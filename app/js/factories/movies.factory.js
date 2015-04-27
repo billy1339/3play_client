@@ -2,6 +2,7 @@ angular.module('3play').factory('MoviesFactory', function($http, $q) {
   'use strict';
 
   var fetch = function() {
+    $('#game-screen').hide();
     var deferred, movies;
     deferred = $q.defer();
     $http.get('http://localhost:3000/movies')
