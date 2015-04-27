@@ -20,22 +20,22 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
   }
 
   $scope.enterMovie = function(data) {
-    var cleanedData, movieSearchId;
+    var cleanedData, movieSearchId, promise;
     cleanedData = data.toLowerCase().replace(/ /g, "").replace(/'/g,"");
     movieSearchId = $scope.movies[cleanedData];
     if (movieSearchId === undefined) {
       alert("Oops! It looks like you've either mispelled the movie or we dont have the movie :( Please try again!")
     } else {
-      $http.get('http://localhost:3000/movies/'+movieSearchId).success(function(response) {
+      promise = $http.get('http://localhost:3000/movies/'+movieSearchId).success(function(response) {
         console.log(response);
         $scope.actors = response;
-        debugger
       }).error(function(response){
         alert(response);
       });
-      $('#entry-screen').hide("slow");
-      $('#game-screen').show("slow");
-      debugger
+      promise.then(function() {
+        $('#entry-screen').hide("slow");
+        $('#game-screen').show("slow");
+      });
     }
     // clearMovieForm();
   };
