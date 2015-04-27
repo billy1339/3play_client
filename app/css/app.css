@@ -1,0 +1,12 @@
+.highlight {
+  border: 5px solid blue;
+}
+
+img {
+  height: 300px;
+  width: 200px;
+}
+
+.namesToDrag {
+  width: 50px;
+}

@@ -30,6 +30,12 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
     }
   };
 
+
+  function handle_drop_patient(event, ui) {
+     $(this).append( $(ui.draggable).clone().css({'float':'left','display':'block'}) );
+     $(ui.draggable).remove();
+  }
+
   $scope.enterMovie = function(data) {
     var cleanedData, movieSearchId, promise;
     cleanedData = data.toLowerCase().replace(/ /g, "").replace(/'/g,"");
@@ -49,6 +55,15 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
         $('#dragMe').on('mouseover','.namesToDrag', function(){
           $(this).draggable();
         });
+        $('#dropMe').on('mouseover', 'img', function() {
+          $(this).droppable({
+            hoverClass: "highlight",
+             drop: function (ui, event) {
+            $(this).addClass($(ui.draggable).attr('class'));
+            }
+          })
+        });
+        // $('#dragMe')
         // addDragtoNames();
         // debugger
         // $('#dragMe').find $(".namesToDrag").draggable();
