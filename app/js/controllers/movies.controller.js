@@ -1,7 +1,7 @@
 angular.module('3play').controller('MovieCtrl', function($scope, $http, $location, MoviesFactory) {
   'use strict'
 
-  var promise, clearMovieForm;
+  var promise, clearMovieForm, addDragtoNames;
 
   promise = MoviesFactory.fetch();
   promise.then(function(movies) {
@@ -12,12 +12,23 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
       movieObject[movieTitleCleaned] = movies[i].id;
     };
     $scope.movies = movieObject;
+    $('#draggable').draggable();
+
   });
 
   clearMovieForm = function() {
     // this removes the title from the scope but does not remove it from the page
     $scope.movieTitle = {};
   }
+
+  addDragtoNames = function() {
+    var data, i;
+    data = $scope.actors.actors;
+    for(i=0; i<data.length; i++) {
+      // debugger
+      $("#"+data[i].id).draggable();
+    }
+  };
 
   $scope.enterMovie = function(data) {
     var cleanedData, movieSearchId, promise;
@@ -35,10 +46,28 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
       promise.then(function() {
         $('#entry-screen').hide("slow");
         $('#game-screen').show("slow");
+        $('#dragMe').on('mouseover','.namesToDrag', function(){
+          $(this).draggable();
+        });
+        // addDragtoNames();
+        // debugger
+        // $('#dragMe').find $(".namesToDrag").draggable();
       });
     }
     // clearMovieForm();
   };
+
+  // $(function() {
+    // $( ".draggable" ).draggable();
+  //   $( "#droppable" ).droppable({
+  //     drop: function( event, ui ) {
+  //       $( this )
+  //         .addClass( "ui-state-highlight" )
+  //         .find( "p" )
+  //           .html( "Dropped!" );
+  //     }
+  //   });
+  // });
 
 
 
