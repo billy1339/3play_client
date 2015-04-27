@@ -2,7 +2,6 @@
 
 <div ng-controller='MovieCtrl'>
   <h1> Do you want to play a game? </h1><br>
-  <h2 id="draggable">Drag me? </h2>
 
   <div class="container" id="entry-screen">
 
@@ -22,24 +21,28 @@
   <div class='container' id='game-screen'>
     <div class='row' id='dropMe'>
         <h1> The game to be played </h1>
+        <div class="col-md-1">
+        </div>
         <div ng-repeat="actor in actors.actors">
-          <div class="col-md-4">
+          <div class="col-md-2">
             <div class='imageDropTo'>
               <img class='imageDropTo' src={{actor.url}} data-id={{actor.id}}>
             </div>
           </div>
         </div>
-      </div>
-      <div class='row'>
-        <div class="col-md-12" id='dragMe'>
-          <div ng-repeat="actor in actors.actors">
-            <div>
-              <p id='{{actor.id}}' class='namesToDrag'> {{actor.name}} </p>
-            </div>
-             <script> $(".namesToDrag").draggable(); </script>
-          </div>
+        <div class="col-md-1">
         </div>
       </div>
+      <div class='row' id='dragMe'>
+        <div class="col-md-1">
+        </div>
+          <div ng-repeat="actor in actors.actors">
+            <div class='col-md-2'>
+              <p id='{{actor.id}}' class='namesToDrag'> {{actor.name}} </p>
+          </div>
+        </div>
+        <div class="col-md-1" id='dragMe'>
+        </div>
     </div>
   </div>
 </div>

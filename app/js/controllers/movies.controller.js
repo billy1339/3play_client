@@ -58,32 +58,18 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
         $('#dropMe').on('mouseover', 'img', function() {
           $(this).droppable({
             hoverClass: "highlight",
+            greedy: true,
              drop: function (ui, event) {
-            $(this).addClass($(ui.draggable).attr('class'));
+              $(this).addClass($(ui.draggable).attr('highlight'));
+              // debugger
+              alert(ui.target.getAttribute('data-id'));
+              alert(ui.toElement.id);
             }
           })
         });
-        // $('#dragMe')
-        // addDragtoNames();
-        // debugger
-        // $('#dragMe').find $(".namesToDrag").draggable();
       });
     }
-    // clearMovieForm();
   };
-
-  // $(function() {
-    // $( ".draggable" ).draggable();
-  //   $( "#droppable" ).droppable({
-  //     drop: function( event, ui ) {
-  //       $( this )
-  //         .addClass( "ui-state-highlight" )
-  //         .find( "p" )
-  //           .html( "Dropped!" );
-  //     }
-  //   });
-  // });
-
 
 
 });
