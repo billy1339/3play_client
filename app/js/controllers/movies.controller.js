@@ -19,7 +19,7 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
 
   clearMovieForm = function() {
     // this removes the title from the scope but does not remove it from the page
-    $scope.movieTitle = {};
+    $scope.movieTitle = undefined;
   }
 
 
@@ -106,6 +106,12 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
     }
     return array;
   }
+
+  $scope.directHome = function() {
+    $('#entry-screen').show("slow");
+    $('#game-screen').hide("slow");
+    clearMovieForm();
+  };
 
 
 });
