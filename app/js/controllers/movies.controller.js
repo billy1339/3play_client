@@ -67,7 +67,9 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
               var picture = ui.target.getAttribute('data-id');
               var name = ui.toElement.id;
               calcScore(picture, name);
-              // ui.toElement.draggable("destroy");
+              $('#'+ui.toElement.id).draggable({
+                disabled: true
+              });
             }
           })
         });
@@ -92,6 +94,9 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
     for(i=0; i<names_list.length; i++) {
       names_list[i].style.top = "0px";
       names_list[i].style.left = "0px";
+      $('#'+names_list[i].id).draggable({
+        disabled: false
+      });
     };
     $scope.gameScore = [];
   };
