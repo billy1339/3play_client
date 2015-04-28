@@ -32,10 +32,10 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
   // };
 
 
-  function handle_drop_patient(event, ui) {
-     $(this).append( $(ui.draggable).clone().css({'float':'left','display':'block'}) );
-     $(ui.draggable).remove();
-  }
+  // function handle_drop_patient(event, ui) {
+  //    $(this).append( $(ui.draggable).clone().css({'float':'left','display':'block'}) );
+  //    $(ui.draggable).remove();
+  // }
 
   $scope.enterMovie = function(data) {
     var cleanedData, movieSearchId, promise, array;
@@ -65,6 +65,7 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
             hoverClass: "highlight",
             greedy: true,
              drop: function (ui, event) {
+              // $(this).addClass('highlight');
               $(this).addClass($(ui.draggable).attr('highlight'));
               var picture = ui.target.getAttribute('data-id');
               var name = ui.toElement.id;
@@ -86,11 +87,14 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
   }
 
   $scope.getScore = function() {
-    alert($scope.gameScore.length);
+    // debugger
+    // alert($scope.gameScore.length);
+    // resetEverything();
+    // resetEverything();
   }
 
 
-  $scope.reset = function() {
+  $scope.resetEverything = function() {
     var names_list, i;
     names_list = $('.namesToDrag')
     for(i=0; i<names_list.length; i++) {
@@ -104,7 +108,7 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
   };
 
   $scope.random = function(){
-    return 0.5 - Math.random();
+    return Math.random()
   };
 
   var shuffleArray = function(array) {

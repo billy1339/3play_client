@@ -23,7 +23,7 @@
         <h1> The game to be played </h1>
         <div class="col-md-1">
         </div>
-        <div ng-repeat="actor in actors | orderBy:random">
+        <div ng-repeat="actor in actors">
           <div class="col-md-2">
             <div class='imageDropTo'>
               <img class='imageDropTo' src={{actor.url}} data-id={{actor.id}}>
@@ -36,7 +36,7 @@
       <div class='row' id='dragMe'>
         <div class="col-md-1">
         </div>
-          <div ng-repeat="actor in actors | orderBy:random">
+          <div ng-repeat="actor in actors">
             <div class='col-md-2'>
               <p id='{{actor.id}}' class='namesToDrag'> {{actor.name}} </p>
           </div>
@@ -47,12 +47,35 @@
           <div class='col-md-4'>
           </div>
           <div class='col-md-4'>
-          <button ng-click='getScore()' type='submit' class='btn btn-primary'> Submit </button>
-          <button ng-click='reset()' type='submit' class='btn btn-primary'> Reset </button>
+          <button ng-click='getScore()' type='submit' class='btn btn-primary' data-toggle="modal" data-target="#myModal"> Submit </button>
+          <button ng-click='resetEverything()' type='submit' class='btn btn-primary'> Reset </button>
           </div>
           <div class='col-md-4'>
           </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Your Score</h4>
+          </div>
+          <div class="modal-body">
+            <h1>{{gameScore.length}}/5</h1>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
+
+
+
 </div>
