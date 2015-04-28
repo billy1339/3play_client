@@ -12,6 +12,7 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
       movieObject[movieTitleCleaned] = movies[i].id;
     };
     $scope.movies = movieObject;
+    $scope.gameScore = [];
     $('#draggable').draggable();
 
   });
@@ -21,14 +22,14 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
     $scope.movieTitle = {};
   }
 
-  addDragtoNames = function() {
-    var data, i;
-    data = $scope.actors.actors;
-    for(i=0; i<data.length; i++) {
-      // debugger
-      $("#"+data[i].id).draggable();
-    }
-  };
+  // addDragtoNames = function() {
+  //   var data, i;
+  //   data = $scope.actors.actors;
+  //   for(i=0; i<data.length; i++) {
+  //     // debugger
+  //     $("#"+data[i].id).draggable();
+  //   }
+  // };
 
 
   function handle_drop_patient(event, ui) {
@@ -63,16 +64,27 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
             greedy: true,
              drop: function (ui, event) {
               $(this).addClass($(ui.draggable).attr('highlight'));
-              // debugger
-              alert(ui.target.getAttribute('data-id'));
-              alert(ui.toElement.id);
-              // ui.toElement.draggable("disable");
+              var picture = ui.target.getAttribute('data-id');
+              var name = ui.toElement.id;
+              calcScore(picture, name);
+              // ui.toElement.draggable("destroy");
             }
           })
         });
       });
     }
   };
+
+  var calcScore = function(picture, name ) {
+    if (picture === name) {
+      $scope.gameScore.push(true);
+    }
+  }
+
+  $scope.getScore = function() {
+    alert($scope.gameScore.length);
+  }
+
 
   $scope.reset = function() {
     var names_list, i;
@@ -81,6 +93,7 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
       names_list[i].style.top = "0px";
       names_list[i].style.left = "0px";
     };
+    $scope.gameScore = [];
   };
 
 
