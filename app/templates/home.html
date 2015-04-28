@@ -11,7 +11,7 @@
         <form role='form' name='movieSearch' novalidate>
         <label for='searchedMovie'> Search for a Movie to Play with... </label>
         <input name='movieTitle' ng-model='movieTitle' type='title' class='form-control' placeholder='Search for the movie hear such as Super Cool Moive or Amazing Movie!' required><br>
-        <button ng-click='enterMovie(movieTitle)' type='submit' class='btn btn-primary' ng-disabled='blgoPost.$invalid'>Start the Game! </button>
+        <button ng-click='enterMovie(movieTitle)' type='submit' class='btn btn-primary' ng-disabled='movieSearch.$invalid'>Start the Game! </button>
       </div>
 
     </div>
