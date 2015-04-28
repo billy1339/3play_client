@@ -38,7 +38,7 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
   }
 
   $scope.enterMovie = function(data) {
-    var cleanedData, movieSearchId, promise;
+    var cleanedData, movieSearchId, promise, array;
     cleanedData = data.toLowerCase().replace(/ /g, "").replace(/'/g,"");
     movieSearchId = $scope.movies[cleanedData];
     if (movieSearchId === undefined) {
@@ -46,7 +46,9 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
     } else {
       promise = $http.get('http://localhost:3000/movies/'+movieSearchId).success(function(response) {
         console.log(response);
-        $scope.actors = response;
+        array = shuffleArray(response.actors)
+        // debugger
+        $scope.actors = array;
       }).error(function(response){
         alert(response);
       });
@@ -100,6 +102,27 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
     };
     $scope.gameScore = [];
   };
+
+  $scope.random = function(){
+    return 0.5 - Math.random();
+  };
+
+  var shuffleArray = function(array) {
+    var m = array.length, t, i;
+
+    // While there remain elements to shuffle
+    while (m) {
+      // Pick a remaining element…
+      i = Math.floor(Math.random() * m--);
+
+      // And swap it with the current element.
+      t = array[m];
+      array[m] = array[i];
+      array[i] = t;
+    }
+
+    return array;
+  }
 
 
 });

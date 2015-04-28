@@ -23,7 +23,7 @@
         <h1> The game to be played </h1>
         <div class="col-md-1">
         </div>
-        <div ng-repeat="actor in actors.actors">
+        <div ng-repeat="actor in actors | orderBy:random">
           <div class="col-md-2">
             <div class='imageDropTo'>
               <img class='imageDropTo' src={{actor.url}} data-id={{actor.id}}>
@@ -36,7 +36,7 @@
       <div class='row' id='dragMe'>
         <div class="col-md-1">
         </div>
-          <div ng-repeat="actor in actors.actors">
+          <div ng-repeat="actor in actors | orderBy:random">
             <div class='col-md-2'>
               <p id='{{actor.id}}' class='namesToDrag'> {{actor.name}} </p>
           </div>
