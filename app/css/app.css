@@ -1,3 +1,8 @@
+* {
+  font-family: 'Play';
+  background-color: rgb(235,235,235);
+}
+
 .highlight {
   border: 5px solid blue;
 }
@@ -41,4 +46,10 @@ img {
 #title {
   text-align: center;
   font-size: 50px;
+  font-family: 'VT323';
+}
+#subTitle {
+  text-align: center;
+  font-size: 25px;
+  font-family: 'VT323';
 }

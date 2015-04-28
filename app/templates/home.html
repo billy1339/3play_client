@@ -1,19 +1,22 @@
 
 
 <div ng-controller='MovieCtrl'>
-  <h1 id='title'> Movie Matching Game </h1><br>
+  <h1 id='title'> Movie Matching Game </h1>
+  <h6 id='subTitle'> Search for a movie, match actors to their pictures, see your score!</h6><br>
 
   <div class="container" id="entry-screen">
 
     <div class="row">
-
-      <div class="col-md-12">
+      <div class='col-md-2'>
+      </div>
+      <div class="col-md-8">
         <form role='form' name='movieSearch' novalidate>
         <label for='searchedMovie'> Search for a Movie to Play with... </label>
         <input name='movieTitle' ng-model='movieTitle' type='title' class='form-control' placeholder='Search for the movie hear such as Super Cool Moive or Amazing Movie!' required><br>
         <button id='startButton' ng-click='enterMovie(movieTitle)' type='submit' class='btn btn-primary btn-lg center-block' ng-disabled='movieSearch.$invalid'>Start the Game! </button>
       </div>
-
+      <div class='col-md-2'>
+      </div>
     </div>
 
   </div>
@@ -21,7 +24,7 @@
   <div id='game-screen'>
     <div class='container' id='picturesContainer'>
       <div class='row' id='dropMe'>
-          <h1> The game to be played </h1>
+          <h1> {{movieTitle}} </h1>
           <div class="col-md-1" class='sidePad'>
           </div>
           <div ng-repeat="picture in pictures">
@@ -47,7 +50,8 @@
         <div class="col-md-3" id='dragMe'>
         </div><br>
       </div>
-      <div class='container'>
+    </div>
+    <div class='container'>
         <div class='row'>
           <div class='col-md-4'>
           </div>

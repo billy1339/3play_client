@@ -32,6 +32,7 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
     } else {
       promise = $http.get('http://localhost:3000/movies/'+movieSearchId).success(function(response) {
         console.log(response);
+        $scope.movieTitle = response.title;
         $scope.actors = shuffleArray(response.actors.slice(0));
         $scope.pictures = shuffleArray(response.actors);
       }).error(function(response){
