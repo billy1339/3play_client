@@ -1,7 +1,7 @@
 
 
 <div ng-controller='MovieCtrl'>
-  <h1> Do you want to play a game? </h1><br>
+  <h1 id='title'> Movie Matching Game </h1><br>
 
   <div class="container" id="entry-screen">
 
@@ -11,44 +11,49 @@
         <form role='form' name='movieSearch' novalidate>
         <label for='searchedMovie'> Search for a Movie to Play with... </label>
         <input name='movieTitle' ng-model='movieTitle' type='title' class='form-control' placeholder='Search for the movie hear such as Super Cool Moive or Amazing Movie!' required><br>
-        <button ng-click='enterMovie(movieTitle)' type='submit' class='btn btn-primary' ng-disabled='movieSearch.$invalid'>Start the Game! </button>
+        <button id='startButton' ng-click='enterMovie(movieTitle)' type='submit' class='btn btn-primary btn-lg center-block' ng-disabled='movieSearch.$invalid'>Start the Game! </button>
       </div>
 
     </div>
 
   </div>
 
-  <div class='container' id='game-screen'>
-    <div class='row' id='dropMe'>
-        <h1> The game to be played </h1>
-        <div class="col-md-1">
-        </div>
-        <div ng-repeat="picture in pictures">
-          <div class="col-md-2">
-            <div class='imageDropTo'>
-              <img class='imageDropTo' src={{picture.url}} data-id={{picture.id}}>
+  <div id='game-screen'>
+    <div class='container' id='picturesContainer'>
+      <div class='row' id='dropMe'>
+          <h1> The game to be played </h1>
+          <div class="col-md-1" class='sidePad'>
+          </div>
+          <div ng-repeat="picture in pictures">
+            <div class="col-md-2">
+              <div class='imageDropTo'>
+                <img class='imageDropTo' src={{picture.url}} data-id={{picture.id}}>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-1">
-        </div>
+          <div class="col-md-1">
+          </div>
       </div>
+    </div><br>
+    <div class="container" id='nameContainer'>
       <div class='row' id='dragMe'>
-        <div class="col-md-1">
+        <div class="col-md-3" class='sidePad'>
         </div>
           <div ng-repeat="actor in actors">
-            <div class='col-md-2'>
+            <div class='col-md-1'>
               <p id='{{actor.id}}' class='namesToDrag'> {{actor.name}} </p>
           </div>
         </div>
-        <div class="col-md-1" id='dragMe'>
-        </div>
+        <div class="col-md-3" id='dragMe'>
+        </div><br>
+      </div>
+      <div class='container'>
         <div class='row'>
           <div class='col-md-4'>
           </div>
           <div class='col-md-4'>
-          <button ng-click='getScore()' type='submit' class='btn btn-primary' data-toggle="modal" data-target="#myModal"> Submit </button>
-          <button ng-click='resetEverything()' type='submit' class='btn btn-primary'> Reset </button>
+          <button ng-click='getScore()' type='submit' class='btn btn-success' data-toggle="modal" data-target="#myModal"> Submit </button>
+          <button ng-click='resetEverything()' type='submit' class='btn btn-warning'> Reset </button>
           </div>
           <div class='col-md-4'>
           </div>

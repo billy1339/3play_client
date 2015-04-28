@@ -10,5 +10,35 @@ img {
 }
 
 .namesToDrag {
-  width: 50px;
+  width: 75px;
+  border: 1px solid black;
+}
+
+.sidePad {
+  padding: 0;
+}
+
+.picturesContainer {
+  margin-bottom: 10px;
+  /*padding-bottom: 15px;*/
+}
+
+.nameContainer {
+  margin-top: 10px;
+  /*padding-top: 15px;*/
+}
+
+.dragMe {
+  text-align: center;
+  margin-top: 50px;
+  /*padding-top: 50px;*/
+}
+
+.startButton {
+  align: center;
+}
+
+#title {
+  text-align: center;
+  font-size: 50px;
 }

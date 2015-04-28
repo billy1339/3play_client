@@ -111,6 +111,7 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
     $('#entry-screen').show("slow");
     $('#game-screen').hide("slow");
     clearMovieForm();
+    $scope.gameScore = [];
   };
 
 
