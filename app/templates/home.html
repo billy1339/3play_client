@@ -25,8 +25,8 @@
     <div class='container center-block' id='picturesContainer'>
       <div class='row' id='dropMe'>
           <h1> {{movieTitle}} </h1>
-        <!--   <div class="col-md-1" class='sidePad'>
-          </div> -->
+          <div class="col-md-1" class='sidePad'>
+          </div>
           <div ng-repeat="picture in pictures">
             <div class="col-md-2">
               <div class='imageDropTo'>
@@ -34,20 +34,20 @@
               </div>
             </div>
           </div>
-         <!--  <div class="col-md-1">
-          </div> -->
+          <div class="col-md-1">
+          </div>
       </div>
     </div><br>
     <div class="container" id='nameContainer'>
       <div class='row' id='dragMe'>
-        <div class="col-md-3" class='sidePad'>
+        <div class="col-md-1" class='sidePad'>
         </div>
           <div ng-repeat="actor in actors">
-            <div class='col-md-1'>
+            <div class='col-md-2'>
               <p id='{{actor.id}}' class='namesToDrag'> {{actor.name}} </p>
           </div>
         </div>
-        <div class="col-md-3" id='dragMe'>
+        <div class="col-md-1">
         </div><br>
       </div>
     </div>
