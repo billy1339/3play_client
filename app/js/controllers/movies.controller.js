@@ -30,7 +30,7 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
     if (movieSearchId === undefined) {
       alert("Oops! It looks like you've either mispelled the movie or we dont have the movie :( Please try again!")
     } else {
-      promise = $http.get('http://localhost:3000/movies/'+movieSearchId).success(function(response) {
+      promise = $http.get('https://limitless-brook-2020.herokuapp.com/movies/'+movieSearchId).success(function(response) {
         console.log(response);
         $scope.movieTitle = response.title;
         $scope.actors = shuffleArray(response.actors.slice(0));

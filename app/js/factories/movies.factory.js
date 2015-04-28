@@ -5,7 +5,7 @@ angular.module('3play').factory('MoviesFactory', function($http, $q) {
     $('#game-screen').hide();
     var deferred, movies;
     deferred = $q.defer();
-    $http.get('http://localhost:3000/movies')
+    $http.get('https://limitless-brook-2020.herokuapp.com/movies')
       .success(function(response) {
         movies = [];
         angular.copy(response, movies);
