@@ -1,7 +1,7 @@
 
 
 <div ng-controller='MovieCtrl'>
-  <h1 id='title'> Movie Matching Game </h1>
+  <h1 id='title'> Actor Matching Game </h1>
   <h6 id='subTitle'> Search for a movie, match actors to their pictures, see your score!</h6><br>
 
   <div class="container" id="entry-screen">
@@ -17,14 +17,44 @@
       </div>
       <div class='col-md-2'>
       </div>
+    </div><br>
+    <div class='row'>
+      <div class='col-md-2'>
+      </div>
+      <div class='col-md-8'>
+        <h6 class='directions'><br> <b>To Begin:</b> Enter the title of a movie into the search bar and hit Start the Game! Capitalization and spacing do not matter but do please try and spell the movie correctly. If you are having trouble with finding a movie to play with, click <a ng-click='revealList()'>here</a> to see all the movies this game supports</h6><br>
+        <div id='movieList'>
+          <p> Supported Movies </p>
+          <ul>
+            <li> Despicable Me </li>
+            <li> Top Gun </li>
+            <li> Pride &#38; Prejudice </li>
+            <li> The Avengers </li>
+            <li> Inception </li>
+          </ul>
+        </div>
+      </div>
+      <div class='col-md-2'>
+      </div>
     </div>
 
   </div>
 
   <div id='game-screen'>
-    <div class='container center-block' id='picturesContainer'>
+    <div class='container'>
+      <div class='row'>
+      <div class='col-md-2'>
+      </div>
+      <div class='col-md-8'>
+          <h6 class='directions'> <b>Directions:</b> Match the actors with their picture. Click and drag an actors name over a picture and drop. When you are finished matching, click Check Your Answers to see your score. Once you drop a name on to a picture you cannot change it, so be careful matching. If you do make a mistake, simply click the Reset button and the game will be reset. If you would like to play with a different movie click Chose Another Movie, and you will be taken back to the screen where you can chose a movie.</h6><br>
+      </div>
+      <div class='col-md-2'>
+      </div>
+      </div>
+    </div>
+    <div class='container' id='picturesContainer'>
       <div class='row' id='dropMe'>
-          <h1> {{movieTitle}} </h1>
+          <h1 id='movieTitleMatch'> {{movieTitle}}: </h1><br>
           <div class="col-md-1" class='sidePad'>
           </div>
           <div ng-repeat="picture in pictures">
@@ -51,15 +81,20 @@
         </div><br>
       </div>
     </div>
-    <div class='container'>
+    <div class='container' id='buttonConainter'>
         <div class='row'>
-          <div class='col-md-4'>
+          <div class='col-md-2'>
           </div>
-          <div class='col-md-4'>
-          <button ng-click='getScore()' type='submit' class='btn btn-success' data-toggle="modal" data-target="#myModal"> Submit </button>
-          <button ng-click='resetEverything()' type='submit' class='btn btn-warning'> Reset </button>
+          <div class='col-md-2'>
+            <button ng-click='getScore()' type='submit' class='btn btn-primary btn-lg' data-toggle="modal" data-target="#myModal"> Check Your Answers </button>
           </div>
-          <div class='col-md-4'>
+          <div class="col-md-4">
+            <button ng-click='resetEverything()' type='submit' class='btn btn-primary btn-lg center-block'> Reset Game </button>
+          </div>
+          <div class="col-md-2">
+            <button ng-click='directHome()' type="button" class="btn btn-primary btn-lg">Chose Another Movie</button>
+          </div>
+          <div class='col-md-2'>
           </div>
         </div>
     </div>
@@ -70,14 +105,13 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Your Score</h4>
           </div>
           <div class="modal-body">
-            <h1>{{gameScore.length}}/5</h1>
+            <h1 class='gameScore'>{{gameScore.length}}/5</h1>
+            <h3 class='gameScore'> {{celebration}} </h3>
           </div>
           <div class="modal-footer">
-            <button ng-click='directHome()' type="button" class="btn btn-default" data-dismiss="modal">return to home screen</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button ng-click='directHome()' type="button" class="btn btn-default" data-dismiss="modal">Play With A Different Movie</button>
           </div>
         </div>
       </div>

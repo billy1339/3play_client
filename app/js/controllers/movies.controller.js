@@ -73,10 +73,26 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
   }
 
   $scope.getScore = function() {
-    // debugger
-    // alert($scope.gameScore.length);
-    // resetEverything();
-    // resetEverything();
+    var length = $scope.gameScore.length;
+    if (length === 5) {
+      $scope.celebration = "Yay! Great Job! You got the matches all right!";
+      $('.gameScore').addClass('green');
+    } else if (length === 4) {
+      $scope.celebration = "Well Done!";
+      $('.gameScore').addClass('green');
+    } else if (length === 3) {
+      $scope.celebration = "Not bad. You should play again!";
+      $('.gameScore').addClass('orange');
+    } else if (length === 2) {
+      $scope.celebration = "Not your best effort, try again";
+      $('.gameScore').addClass('orange');
+    } else if (length === 1) {
+      $scope.celebration = "Well, one right is better than none.";
+      $('.gameScore').addClass('red');
+    } else {
+      $scope.celebration = "Poor showing. Try again.";
+      $('.gameScore').addClass('red');
+    }
   }
 
 
@@ -114,6 +130,10 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
     clearMovieForm();
     $scope.gameScore = [];
   };
+
+  $scope.revealList = function() {
+    $('#movieList').show("slow");
+  }
 
 
 });
