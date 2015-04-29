@@ -12,7 +12,7 @@
       <div class="col-md-8">
         <form role='form' name='movieSearch' novalidate>
         <label for='searchedMovie'> Search for a Movie to Play with... </label>
-        <input name='movieTitle' ng-model='movieTitle' type='title' class='form-control' placeholder='Search for the movie hear such as Super Cool Moive or Amazing Movie!' required><br>
+        <input name='movieTitle' ng-model='movieTitle' type='title' class='form-control' placeholder='ex: Top Gun or Despicable Me' required><br>
         <button id='startButton' ng-click='enterMovie(movieTitle)' type='submit' class='btn btn-primary btn-lg center-block' ng-disabled='movieSearch.$invalid'>Start the Game! </button>
       </div>
       <div class='col-md-2'>
@@ -24,7 +24,7 @@
       <div class='col-md-8'>
         <h6 class='directions'><br> <b>To Begin:</b> Enter the title of a movie into the search bar and hit Start the Game! Capitalization and spacing do not matter but do please try and spell the movie correctly. If you are having trouble with finding a movie to play with, click <a ng-click='revealList()'>here</a> to see all the movies this game supports</h6><br>
         <div id='movieList'>
-          <p> Supported Movies </p>
+          <p> Supported Movies: </p>
           <ul>
             <li> Despicable Me </li>
             <li> Top Gun </li>
