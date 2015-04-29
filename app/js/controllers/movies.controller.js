@@ -73,6 +73,9 @@ angular.module('3play').controller('MovieCtrl', function($scope, $http, $locatio
   }
 
   $scope.getScore = function() {
+    $('.gameScore').removeClass('green');
+    $('.gameScore').removeClass('red');
+    $('.gameScore').removeClass('orange')
     var length = $scope.gameScore.length;
     if (length === 5) {
       $scope.celebration = "Yay! Great Job! You got the matches all right!";
